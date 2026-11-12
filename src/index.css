@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ---------- Design tokens: deep navy, warm ivory, champagne gold ---------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --color-ink: #121A2B;
+  --color-ink-hover: #26324A;
+  --color-muted: #5B6272;
+  --color-subtle: #727887;
+
+  --color-ivory: #F8F5EF;
+  --color-paper: #FCFAF6;
+  --color-line: #E6E0D4;
+  --color-line-soft: #EFEAE0;
+  --color-line-strong: #D6CEBF;
+
+  --color-gold: #B08D57;
+  --color-gold-deep: #8A6A33;
+  --color-gold-deeper: #6F5427;
+  --color-gold-tint: #F3EBDB;
+  --color-gold-tint-2: #EBDFC6;
+  --color-gold-wash: #F8F2E5;
+  --color-gold-line: #E3D3B1;
+  --color-gold-line-strong: #D8C196;
+  --color-champagne: #E2C98F;
+
+  --color-on-dark-muted: #B4BCCB;
+  --color-on-dark-subtle: #8F9AAE;
+}
+
+@layer base {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* Clear, consistent keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-gold-deep);
+}
+
+/* Tool icon tones: muted, cohesive, still easy to tell apart */
+.icon-box.mint   { background: var(--color-gold-tint); color: var(--color-gold-deep); }
+.icon-box.blue   { background: #E9EDF3; color: #46597A; }
+.icon-box.peach  { background: #F4E8E0; color: #96684C; }
+.icon-box.purple { background: #EEE8EF; color: #6B5573; }
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
